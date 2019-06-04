@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+{% block title %}Charge{% endblock %}
+
+{% block content %}
+  <div class="container">
+   <div class="row">
+      <div class="col">
+         <div class="row">
+            <div class="col">
+               <h2 class="text-center">
+                  Securely collect payment information using Bongloy.js
+               </h2>
+            </div>
+         </div>
+         <div class="row">
+            <div class="col-md-3 col-sm-1"></div>
+            <div class="col">
+               <div class="alert alert-danger d-none" data-name="errorMessages" role="alert"></div>
+               <form autocomplete="on" data-name="paymentForm" novalidate="novalidate" action="/charge" accept-charset="UTF-8" method="post">
+                  {% csrf_token %}
+                  <div class="form-group hidden new_charge_token">
+                     <div class="input-group">
+                       <input class="form-control hidden" data-name="cardToken" name="token" type="hidden" id="charge_token">
+                     </div>
+                  </div>
+                  <div class="form-group tel required new_charge_card_number">
+                     <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text"><i id="card-brand-icon" class="pf pf-credit-card"></i></span>
+                        </div>
+                        <input class="form-control string tel required" data-name="cardNumber" data-target="card-brand-icon" placeholder="Card Number" type="tel">
+                     </div>
+                     <small class="form-text text-muted">Use a sample card number listed below</small>
+                  </div>
+                  <div class="row">
+                     <div class="col">
+                        <div class="form-group tel required new_charge_expiry">
+                           <div class="input-group">
+                             <input class="form-control string tel required" data-name="cardExpiry" placeholder="Expiry" type="tel">
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col">
+                        <div class="form-group tel required new_charge_cvc">
+                           <div class="input-group">
+                             <input class="form-control string tel required" data-name="cardCVC" maxlength="3" placeholder="CVC" type="tel">
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col">
+                        <input type="submit" name="commit" value="Buy" class="btn btn btn-success float-right" data-disable-with="Buy">
+                     </div>
+                  </div>
+               </form>
+            </div>
+            <div class="col-md-3 col-sm-1"></div>
+         </div>
+         <div class="row">
+            <div class="col">
+               <p></p>
+               <table class="table table-bordered table-striped">
+                  <thead>
+                     <tr>
+                        <th scope="col">
+                           Number
+                        </th>
+                        <th scope="col">
+                           Card Brand
+                        </th>
+                        <th scope="col">
+                           Expiry Date
+                        </th>
+                        <th scope="col">
+                           CVC
+                        </th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <tr>
+                        <td>
+                           <code>6200 0000 0000 0005</code>
+                        </td>
+                        <td>
+                           Union Pay
+                        </td>
+                        <td>
+                           06 / 19
+                        </td>
+                        <td>
+                           123
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+               <p></p>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+
+{% endblock %}
+

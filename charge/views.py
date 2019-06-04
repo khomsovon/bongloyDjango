@@ -7,6 +7,7 @@ from django.shortcuts import render
 from django.utils.html import escape
 from django.http import HttpResponse
 from django.contrib import messages
+from django.conf import settings
 
 def new(request):
     return render(request, 'charge/new.html')

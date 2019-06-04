@@ -1,8 +1,15 @@
 import os
 import stripe as bongloy
 
+BONGLOY_PUBLISHABLE_KEY = "pk_test_56b6630429c92062953adac23cd7420386e55ce60eb465cd0ad3ab226c09eb6a"
+BONGLOY_SECRET_KEY = "sk_test_971102c58614cf1c434ea0674d3b9c5c1330612a8b1a98bcb3226aa65a209f3c"
+
 bongloy.api_base = "https://api.bongloy.com"
-bongloy.api_key = "sk_test_971102c58614cf1c434ea0674d3b9c5c1330612a8b1a98bcb3226aa65a209f3c"
+bongloy.api_key = BONGLOY_SECRET_KEY
+
+SETTINGS_EXPORT = [
+    'BONGLOY_PUBLISHABLE_KEY',
+]
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -48,6 +55,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django_settings_export.settings_export',
             ],
         },
     },

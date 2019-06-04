@@ -7,6 +7,7 @@ Bongloy demo Django is a Django app which demonstrates how to use Bongloy.
 ```sh
   $ git clone https://github.com/khomsovon/bongloyDjango.git
   $ cd bongloyDjango
+  $ pip install -r requirements.txt
 ```
 
 ## Run server

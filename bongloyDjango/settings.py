@@ -1,5 +1,4 @@
 import os
-import environ
 import stripe as bongloy
 
 bongloy.api_base = "https://api.bongloy.com"
